@@ -3,7 +3,7 @@ locals {
   configure_management_resources = {
     settings = {
       log_analytics = {
-        enabled = false
+        enabled = true
         config = {
           retention_in_days                                 = var.log_retention_in_days
           enable_monitoring_for_vm                          = false

@@ -17,6 +17,7 @@ provider "azurerm" {
   features {
 
   }
+  subscription_id = var.management_subscription_id
 }
 
 data "azurerm_client_config" "core" {}
@@ -26,6 +27,7 @@ module "azure_landing_zones" {
   version = "4.0.1"
 
   default_location = var.default_location
+  disable_telemetry = true
 
   providers = {
     azurerm              = azurerm
