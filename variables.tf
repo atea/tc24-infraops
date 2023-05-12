@@ -1,7 +1,7 @@
 # Core
 variable "root_id" {
-  type    = string
-  default = "myorg"
+  type        = string
+  default     = "myorg"
   description = "Used for naming ALZ resources"
 }
 
@@ -18,8 +18,8 @@ variable "default_location" {
 }
 
 variable "decommissioned_subscription_ids" {
-  type = list(string)
-  default = [""]
+  type        = list(string)
+  default     = [""]
   description = "Subscription IDs to be placed in Decommissioned management group"
 }
 
