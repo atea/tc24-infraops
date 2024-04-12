@@ -114,13 +114,13 @@ data "azuread_group" "TC24-Deltakere" {
 }
 
 resource "azurerm_role_assignment" "Deltaker-LZ-Owner" {
-  scope = "/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"
+  scope                = "/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"
   role_definition_name = "Owner"
-  principal_id = data.azuread_group.TC24-Deltakere.object_id
+  principal_id         = data.azuread_group.TC24-Deltakere.object_id
 }
 
 resource "azurerm_role_assignment" "Deltaker-New-Subs-Owner" {
-  scope = "/providers/Microsoft.Management/managementGroups/new-subscriptions"
+  scope                = "/providers/Microsoft.Management/managementGroups/new-subscriptions"
   role_definition_name = "Owner"
-  principal_id = data.azuread_group.TC24-Deltakere.object_id
+  principal_id         = data.azuread_group.TC24-Deltakere.object_id
 }
