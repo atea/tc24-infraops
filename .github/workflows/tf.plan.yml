@@ -8,10 +8,8 @@ on:
   pull_request:
     branches:
       - main
-    paths-ignore:
-        - .github/**
-        - .gitignore
-        - scripts/**
+    paths:
+      - Core/**
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -30,6 +28,7 @@ jobs:
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
+        working-directory: ./Core
         shell: bash
 
     steps:
