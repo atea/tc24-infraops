@@ -7,8 +7,10 @@
         "displayName": "Resource groups must have mandatory tagging applied",
         "notScopes": [],
         "parameters": {
-            "listOfAllowedSKUs": ["Standard_D2_v5"]
-        } ,
+            "listOfAllowedSKUs": {
+                "value": ["Standard_D2_v5"]
+            }
+        },
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Allowed-VM-Sizes",
         "scope": "${current_scope_resource_id}",
         "enforcementMode": null,
