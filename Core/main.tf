@@ -51,15 +51,9 @@ provider "azurerm" {
 
 data "azurerm_client_config" "core" {}
 
-/*
-module "identity_governance" {
-  source = "./modules/terraform-azuread-identity-governance"
-} 
-*/
-
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
-  version           = "4.2.0"
+  version           = "5.2.1"
   disable_telemetry = true
   library_path      = "${path.root}/lib"
 
@@ -106,30 +100,3 @@ module "alz_architecture" {
   deploy_management_resources    = var.deploy_management_resources
   configure_management_resources = local.configure_management_resources
 }
-
-/*
-module "identity_zone" {
-  source = "./modules/terraform-azurerm-identity-zone"
-  providers = {
-    azurerm              = azurerm.identity
-    azurerm.connectivity = azurerm.connectivity
-  }
-
-  vnet_address_space          = var.identity_vnet_address_space
-  hub_vnet                    = data.azurerm_virtual_network.hub
-  ad_ds_subnet_address_prefix = var.ad_ds_subnet_address_prefix
-  allowed_management_networks = var.allowed_management_networks
-  vnet_dns_servers            = [""]
-  service_connection_name     = var.service_connection_name
-
-  keyvault_admins = var.keyvault_admins
-
-  domain_controllers = {
-    "dc01-az" = {
-      ip_address = ""
-    },
-    "dc02-az" = {
-      ip_address = ""
-    }
-  }
-} */
