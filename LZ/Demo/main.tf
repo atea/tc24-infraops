@@ -6,8 +6,10 @@ data "azurerm_client_config" "primary" {}
 
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
-  version           = "3.1.2"
+  version           = "4.2.0"
   disable_telemetry = true
+
+  default_location = var.resource_location
 
   providers = {
     azurerm              = azurerm
