@@ -15,7 +15,7 @@ locals {
             bgp_community                = ""
             subnets                      = []
             virtual_network_gateway = {
-              enabled = true
+              enabled = false
               config = {
                 address_prefix           = "10.255.255.0/24"
                 gateway_sku_expressroute = ""
