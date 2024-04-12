@@ -1,11 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: 'LZ - Demo - Terraform - Plan'
+name: 'LZ - Demo - Terraform - Deploy'
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push request events but only for the "test-core" branch
-  pull_request:
+  push:
     branches:
       - main
     paths:
