@@ -1,5 +1,5 @@
 root_id   = "atealab"
-root_name = "Atea LAB"
+root_name = "Atea Lab"
 
 connectivity_resources_location = "westeurope"
 deploy_connectivity_resources   = true
