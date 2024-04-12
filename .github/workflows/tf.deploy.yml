@@ -17,14 +17,14 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: Test
+  group: Core
   cancel-in-progress: false
 
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: Test
+    environment: Core
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
