@@ -23,29 +23,29 @@ variable "landing_zone_subscription_ids" {
   description = "List of subscription IDs for the IT Landing Zone(s)"
 }
 
-variable "hub_vnet_name" {
-  type = string
-}
+# variable "hub_vnet_name" {
+#   type = string
+# }
 
-variable "hub_resource_group" {
-  type = string
-}
+# variable "hub_resource_group" {
+#   type = string
+# }
 
-variable "hub_network_ids" {
-  type = list(string)
-}
+# variable "hub_network_ids" {
+#   type = list(string)
+# }
 
-variable "vnet_address_space" {
-  type = list(string)
-}
+# variable "vnet_address_space" {
+#   type = list(string)
+# }
 
-variable "vnet_subnets" {
-  type = map(any)
-}
+# variable "vnet_subnets" {
+#   type = map(any)
+# }
 
-variable "connectivity_subscription_id" {
-  type = string
-}
+# variable "connectivity_subscription_id" {
+#   type = string
+# }
 
 variable "enviroment" {
   type    = string
@@ -55,19 +55,4 @@ variable "enviroment" {
 variable "resource_location" {
   type    = string
   default = "norwayeast"
-}
-
-#Prod definition
-variable "prod_sub_id" {
-  type = string
-}
-
-variable "prod_vnet_addr_space" {
-  type = list(string)
-}
-
-variable "prod_subnets" {
-  type = map(object({
-    address_prefix = string
-  }))
 }

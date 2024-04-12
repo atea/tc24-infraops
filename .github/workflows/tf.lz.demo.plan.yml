@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: 'LZ - Demp - Terraform - Plan'
+name: 'LZ - Demo - Terraform - Plan'
 
 # Controls when the workflow will run
 on:
@@ -23,7 +23,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: Core
+    environment: LZ/Demo
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -59,13 +59,18 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false -var-file=vars.tfvars
+      run: terraform plan -input=false
       env:
-        
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
         ARM_SUBSCRIPTION_ID: ${{ vars.SUBSCRIPTION_ID }}
         ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_ACTIONS_SECRET }}
+
+        #env
+        TF_VARS_root_id: ${{ vars.ROOT_ID }}
+        TF_VARS_root_name: ${{ vars.ROOT_NAME }}
+        TF_VARS_landing_zone_subscription_ids: ${{ vars.SUBSCRIPTION_IDS }}
+        TF_VARS_azuread_group_owner: ${{ vars.AZUREAD_GROUP_OWNER }}
 
       shell: bash
