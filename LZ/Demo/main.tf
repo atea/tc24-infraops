@@ -4,15 +4,11 @@ provider "azurerm" {
 
 data "azurerm_client_config" "primary" {}
 
-data "azurerm_client_config" "prod" {
-  provider = azurerm.prod
-}
-
-provider "azurerm" {
-  alias           = "connectivity"
-  subscription_id = var.connectivity_subscription_id
-  features {}
-}
+# provider "azurerm" {
+#   alias           = "connectivity"
+#   subscription_id = var.connectivity_subscription_id
+#   features {}
+# }
 
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
@@ -37,7 +33,7 @@ module "alz_architecture" {
       parent_management_group_id = "${var.root_id}-landing-zones"
       subscription_ids           = var.landing_zone_subscription_ids
       archetype_config = {
-        archetype_id = "sm_landingzone"
+        archetype_id = "demo_landingzone"
         parameters = {
         }
         access_control = {
@@ -47,37 +43,22 @@ module "alz_architecture" {
   }
 }
 
-moved {
-  from = module.spoke_network
-  to   = module.test_spoke_network
-}
+# module "test_spoke_network" {
+#   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
-moved {
-  from = azurerm_resource_group.IaaC
-  to   = azurerm_resource_group.test_IaaC
-}
+#   providers = {
+#     azurerm              = azurerm
+#     azurerm.connectivity = azurerm.connectivity
+#   }
 
-moved {
-  from = azurerm_storage_account.terraformStateStorage
-  to   = azurerm_storage_account.test_terraformStateStorage
-}
-
-module "test_spoke_network" {
-  source = "./modules/terraform-azurerm-lz-spoke-network/"
-
-  providers = {
-    azurerm              = azurerm
-    azurerm.connectivity = azurerm.connectivity
-  }
-
-  location                     = var.resource_location
-  landingzone_name             = var.landing_zone_name
-  environment                  = var.enviroment
-  hub_vnet_name                = var.hub_vnet_name
-  hub_vnet_resource_group_name = var.hub_resource_group
-  vnet_address_space           = var.vnet_address_space
-  subnets                      = var.vnet_subnets
-}
+#   location                     = var.resource_location
+#   landingzone_name             = var.landing_zone_name
+#   environment                  = var.enviroment
+#   hub_vnet_name                = var.hub_vnet_name
+#   hub_vnet_resource_group_name = var.hub_resource_group
+#   vnet_address_space           = var.vnet_address_space
+#   subnets                      = var.vnet_subnets
+# }
 
 resource "azurerm_resource_group" "test_IaaC" {
   name     = "rg-IaaC-Management"
@@ -90,41 +71,4 @@ resource "azurerm_storage_account" "test_terraformStateStorage" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   resource_group_name      = azurerm_resource_group.test_IaaC.name
-}
-
-moved {
-  from = azurerm_resource_group.infra
-  to   = azurerm_resource_group.prod_infra
-}
-resource "azurerm_resource_group" "prod_infra" {
-  provider = azurerm.prod
-  location = var.resource_location
-  name     = "rg-safemon-infra"
-}
-
-resource "azurerm_dns_zone" "cloud_safemon" {
-  provider            = azurerm.prod
-  name                = "cloud.safemon.no"
-  resource_group_name = azurerm_resource_group.prod_infra.name
-}
-
-resource "azurerm_dns_ns_record" "test" {
-  provider            = azurerm.prod
-  name                = "test"
-  zone_name           = azurerm_dns_zone.cloud_safemon.name
-  resource_group_name = azurerm_resource_group.prod_infra.name
-  ttl                 = 300
-
-  records = azurerm_dns_zone.test_cloud_safemon.name_servers
-}
-
-resource "azurerm_resource_group" "test_infra" {
-  location = var.resource_location
-  name     = "rg-safemon-infra"
-}
-
-resource "azurerm_dns_zone" "test_cloud_safemon" {
-  provider            = azurerm.prod
-  name                = "test.cloud.safemon.no"
-  resource_group_name = azurerm_resource_group.test_infra.name
 }
