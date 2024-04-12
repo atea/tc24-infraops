@@ -16,11 +16,13 @@ variable "location" {
 variable "hub_vnet_name" {
   type        = string
   description = "Name of Hub VNET used for VNET peering"
+  default     = null
 }
 
 variable "hub_vnet_resource_group_name" {
   type        = string
   description = "Name of resource group where hub vnet is located"
+  default     = null
 }
 
 variable "vnet_address_space" {
@@ -29,6 +31,8 @@ variable "vnet_address_space" {
 }
 
 variable "subnets" {
-  type        = map(any)
+  type        = map(object({
+    address_prefix = string
+  }))
   description = "Subnets to create in Spoke virtual network"
 }
