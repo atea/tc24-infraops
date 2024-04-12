@@ -33,7 +33,7 @@ module "alz_architecture" {
       parent_management_group_id = "${var.root_id}-landing-zones"
       subscription_ids           = var.landing_zone_subscription_ids
       archetype_config = {
-        archetype_id = "sm_landingzone"
+        archetype_id = "demo_landingzone"
         parameters = {
         }
         access_control = {
