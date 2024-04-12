@@ -1,7 +1,7 @@
 {
     "extend_es_landing_zones": {
-      "policy_assignments": ["Enforce-Mandatory-Tags"],
-      "policy_definitions": ["VNET-Peering-Allowed-VNets"],
+      "policy_assignments": ["Enforce-Mandatory-Tags", "Enforce-VM-Sizes"],
+      "policy_definitions": [],
       "policy_set_definitions": [],
       "role_definitions": [],
       "archetype_config": {
