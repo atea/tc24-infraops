@@ -1,0 +1,23 @@
+{
+    "exclude_es_root": {
+      "policy_assignments": [
+        "Deploy-ASC-Monitoring",
+        "Deploy-AzActivity-Log",
+        "Deploy-MDEndpoints",
+        "Deploy-MDFC-Config",
+        "Deploy-MDFC-OssDb",
+        "Deploy-MDFC-SqlAtp",
+        "Deploy-Resource-Diag",
+        "Deploy-VM-Monitoring",
+        "Deploy-VMSS-Monitoring",
+        "Enforce-ACSB"
+      ],
+      "policy_definitions": [],
+      "policy_set_definitions": [],
+      "role_definitions": [],
+      "archetype_config": {
+        "parameters": {},
+        "access_control": {}
+      }
+    }
+  }

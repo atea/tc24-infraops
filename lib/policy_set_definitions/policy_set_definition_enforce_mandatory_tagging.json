@@ -1,0 +1,74 @@
+{
+    "name": "Enforce-Mandatory-Tags",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "apiVersion": "2021-06-01",
+    "scope": null,
+    "properties": {
+      "policyType": "Custom",
+      "displayName": "Ensure mandatory tagging is applied to both Resources and Resource Groups",
+      "description": "Contains the core tagging policies applicable to the org",
+      "metadata": {
+        "version": "1.0.0",
+        "category": "General"
+      },
+      "parameters": {
+        "EnforceRGTags-costcenter": {
+            "type": "String",
+            "metadata": {
+              "displayName": "costcenter",
+              "description": "Specifies the costcenter of the Resource Group"
+            }
+        },
+        "EnforceRGTags-created-by": {
+            "type": "String",
+            "metadata": {
+              "displayName": "created-by",
+              "description": "Specifies who created the Resource Group"
+            }
+        },
+        "EnforceResourceTags-costcenter": {
+            "type": "String",
+            "metadata": {
+              "displayName": "costcenter",
+              "description": "Specifies the costcenter of the resource"
+            }
+        },
+        "EnforceResourceTags-created-by": {
+            "type": "String",
+            "metadata": {
+              "displayName": "created-by",
+              "description": "Specifies who created the resource"
+            }
+        }
+      },
+      "policyDefinitions": [
+        {
+          "policyDefinitionReferenceId": "Resource groups must have mandatory tagging applied",
+          "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Enforce-RG-Tags",
+          "parameters": {
+            "costcenter": {
+              "value": "[parameters('EnforceRGTags-costcenter')]"
+            },
+            "created-by": {
+              "value": "[parameters('EnforceRGTags-created-by')]"
+            }
+          },
+          "groupNames": []
+        },
+        {
+          "policyDefinitionReferenceId": "Resources must have mandatory tagging applied",
+          "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Enforce-Resource-Tags",
+          "parameters": {
+            "costcenter": {
+              "value": "[parameters('EnforceResourceTags-costcenter')]"
+            },
+            "created-by": {
+              "value": "[parameters('EnforceResourceTags-created-by')]"
+            }
+          },
+          "groupNames": []
+        }
+      ],
+      "policyDefinitionGroups": null
+    }
+  }

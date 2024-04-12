@@ -1,0 +1,19 @@
+{
+    "exclude_es_landing_zones": {
+      "policy_assignments": [
+        "Audit-AppGW-WAF",
+        "Deploy-AKS-Policy",
+        "Deploy-AzSqlDb-Auditing",
+        "Deploy-SQL-Threat",
+        "Deploy-VM-Backup",
+        "Enable-DDoS-VNET"
+      ],
+      "policy_definitions": [],
+      "policy_set_definitions": [],
+      "role_definitions": [],
+      "archetype_config": {
+        "parameters": {},
+        "access_control": {}
+      }
+    }
+  }

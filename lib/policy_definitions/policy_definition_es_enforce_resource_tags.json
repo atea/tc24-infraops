@@ -1,0 +1,49 @@
+{
+    "name": "Enforce-Resource-Tags",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "apiVersion": "2021-06-01",
+    "scope": null,
+        "properties": {
+        "displayName": "Resources must have mandatory tagging applied",
+        "policyType": "Custom",
+        "mode": "Indexed",
+        "description": "Enforce mandatory 'costcenter' and 'created-by' tags on Resources",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags"
+        },
+        "policyRule": {
+            "if": {
+                "anyof": [
+                    {
+                        "field": "[concat('tags[', parameters('costcenter'), ']')]",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "[concat('tags[', parameters('created-by'), ']')]",
+                        "exists": "false"
+                    }
+                    ]
+            },
+            "then": {
+                "effect": "Audit"
+            }
+        },    
+            "parameters": {
+                "costcenter": {
+                    "type": "String",
+                    "metadata": {
+                        "displayName": "costcenter",
+                        "description": "Specifies the costcenter of the resource"
+                    }
+                },
+                "created-by": {
+                    "type": "String",
+                    "metadata": {
+                        "displayName": "created-by",
+                        "description": "Specifies who created the Resource"
+                    }
+                }
+            }
+        }
+    }

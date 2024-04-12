@@ -7,7 +7,7 @@ resource "azuread_group" "root_owner" {
 }
 
 resource "azurerm_role_assignment" "root_owner" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_1["/providers/Microsoft.Management/managementGroups/${var.root_id}"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_1["/providers/Microsoft.Management/managementGroups/${var.root_id}"].id
   role_definition_name = "Owner"
   principal_id         = azuread_group.root_owner.id
 }
@@ -20,7 +20,7 @@ resource "azuread_group" "root_reader" {
 }
 
 resource "azurerm_role_assignment" "root_reader" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_1["/providers/Microsoft.Management/managementGroups/${var.root_id}"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_1["/providers/Microsoft.Management/managementGroups/${var.root_id}"].id
   role_definition_name = "Reader"
   principal_id         = azuread_group.root_reader.id
 }
@@ -34,7 +34,7 @@ resource "azuread_group" "platform_owner" {
 }
 
 resource "azurerm_role_assignment" "platform_owner" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-platform"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-platform"].id
   role_definition_name = "Owner"
   principal_id         = azuread_group.platform_owner.id
 }
@@ -47,7 +47,7 @@ resource "azuread_group" "platform_contributor" {
 }
 
 resource "azurerm_role_assignment" "platform_contributor" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-platform"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-platform"].id
   role_definition_name = "Contributor"
   principal_id         = azuread_group.platform_contributor.id
 }
@@ -61,7 +61,7 @@ resource "azuread_group" "landingzones_owner" {
 }
 
 resource "azurerm_role_assignment" "landingzones_owner" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"].id
   role_definition_name = "Owner"
   principal_id         = azuread_group.landingzones_owner.id
 }
@@ -74,7 +74,7 @@ resource "azuread_group" "landingzones_contributor" {
 }
 
 resource "azurerm_role_assignment" "landingzones_contributor" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"].id
   role_definition_name = "Contributor"
   principal_id         = azuread_group.landingzones_contributor.id
 }
@@ -88,7 +88,7 @@ resource "azuread_group" "sandbox_owner" {
 }
 
 resource "azurerm_role_assignment" "sandbox_owner" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-sandboxes"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-sandboxes"].id
   role_definition_name = "Owner"
   principal_id         = azuread_group.sandbox_owner.id
 }
@@ -101,7 +101,7 @@ resource "azuread_group" "sandbox_contributor" {
 }
 
 resource "azurerm_role_assignment" "sandbox_contributor" {
-  scope                = module.azure_landing_zones.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-sandboxes"].id
+  scope                = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-sandboxes"].id
   role_definition_name = "Contributor"
   principal_id         = azuread_group.sandbox_contributor.id
 }
