@@ -105,3 +105,10 @@ resource "azurerm_role_assignment" "sandbox_contributor" {
   role_definition_name = "Contributor"
   principal_id         = azuread_group.sandbox_contributor.id
 }
+
+
+#TC24
+data "azuread_group" "TC24-Deltakere" {
+  display_name     = "TC24-Deltakere"
+  security_enabled = true
+}
