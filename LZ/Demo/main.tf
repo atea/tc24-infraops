@@ -63,7 +63,7 @@ moved {
 }
 
 module "test_spoke_network" {
-  source = "./modules/terraform-azurerm-lz-spoke-network/"
+  source = "https://github.com/fwikestad/terraform-spoke-network"
 
   providers = {
     azurerm              = azurerm
@@ -90,41 +90,4 @@ resource "azurerm_storage_account" "test_terraformStateStorage" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   resource_group_name      = azurerm_resource_group.test_IaaC.name
-}
-
-moved {
-  from = azurerm_resource_group.infra
-  to   = azurerm_resource_group.prod_infra
-}
-resource "azurerm_resource_group" "prod_infra" {
-  provider = azurerm.prod
-  location = var.resource_location
-  name     = "rg-safemon-infra"
-}
-
-resource "azurerm_dns_zone" "cloud_safemon" {
-  provider            = azurerm.prod
-  name                = "cloud.safemon.no"
-  resource_group_name = azurerm_resource_group.prod_infra.name
-}
-
-resource "azurerm_dns_ns_record" "test" {
-  provider            = azurerm.prod
-  name                = "test"
-  zone_name           = azurerm_dns_zone.cloud_safemon.name
-  resource_group_name = azurerm_resource_group.prod_infra.name
-  ttl                 = 300
-
-  records = azurerm_dns_zone.test_cloud_safemon.name_servers
-}
-
-resource "azurerm_resource_group" "test_infra" {
-  location = var.resource_location
-  name     = "rg-safemon-infra"
-}
-
-resource "azurerm_dns_zone" "test_cloud_safemon" {
-  provider            = azurerm.prod
-  name                = "test.cloud.safemon.no"
-  resource_group_name = azurerm_resource_group.test_infra.name
 }

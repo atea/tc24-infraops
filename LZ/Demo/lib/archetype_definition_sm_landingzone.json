@@ -1,5 +1,5 @@
 {
-    "sm_landingzone": {
+    "demo_landingzone": {
       "policy_assignments": ["Deny-Resource-Locations", "Deny-RSG-Locations"],
       "policy_definitions": [],
       "policy_set_definitions": [],
