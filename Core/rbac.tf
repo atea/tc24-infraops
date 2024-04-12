@@ -107,7 +107,7 @@ resource "azurerm_role_assignment" "sandbox_contributor" {
 }
 
 
-#TC24
+##TC24
 data "azuread_group" "TC24-Deltakere" {
   display_name     = "TC24-Deltakere"
   security_enabled = true
