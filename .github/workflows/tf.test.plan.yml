@@ -59,7 +59,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false -var-file=test.tfvars
+      run: terraform plan -input=false -var-file=vars.tfvars
       env:
         
         #Connection Variables
