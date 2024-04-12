@@ -2,6 +2,8 @@ provider "azurerm" {
   features {}
 }
 
+
+#Test trigger
 data "azurerm_client_config" "primary" {}
 
 module "alz_architecture" {

@@ -21,7 +21,7 @@ terraform {
   }
   backend "azurerm" {}
 }
-
+#Test trigger
 provider "azuread" {}
 
 provider "azurerm" {
