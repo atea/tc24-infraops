@@ -59,7 +59,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Deploy
-      run: terraform deploy -auto-approve -input=false
+      run: terraform apply -auto-approve -input=false
       env:
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
