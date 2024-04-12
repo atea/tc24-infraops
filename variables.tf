@@ -73,8 +73,8 @@ variable "management_resources_tags" {
 }
 
 variable "decommissioned_subscription_ids" {
-  type = list(string)
-  default = [ "" ]
+  type    = list(string)
+  default = [""]
 }
 
 /* # Site-Site VPN
