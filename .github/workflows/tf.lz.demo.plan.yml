@@ -72,5 +72,5 @@ jobs:
         TF_VAR_root_name: ${{ vars.ROOT_NAME }}
         TF_VAR_landing_zone_subscription_ids: ${{ vars.SUBSCRIPTION_IDS }}
         TF_VAR_azuread_group_owner: ${{ vars.AZUREAD_GROUP_OWNER }}
-
+        TF_VAR_landing_zone_name: "Demo"
       shell: bash
