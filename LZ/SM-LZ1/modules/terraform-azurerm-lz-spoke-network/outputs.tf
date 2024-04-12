@@ -1,5 +1,5 @@
 output "subnets" {
-  value        = data.azurerm_subnet.subnets
+  value       = data.azurerm_subnet.subnets
   description = "Spoke subnets"
 }
 

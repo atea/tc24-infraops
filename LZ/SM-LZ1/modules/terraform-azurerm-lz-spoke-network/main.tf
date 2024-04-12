@@ -18,6 +18,7 @@ locals {
 }
 
 data "azurerm_virtual_network" "hub_vnet" {
+  count = var.hub_vnet_name ? 1 : 0
   provider            = azurerm.connectivity
   name                = var.hub_vnet_name
   resource_group_name = var.hub_vnet_resource_group_name
@@ -91,8 +92,10 @@ resource "azurerm_virtual_network_peering" "spoke_hub" {
   use_remote_gateways     = true
   allow_forwarded_traffic = true
 }
-/*
+
+
 resource "azurerm_virtual_network_peering" "hub_spoke" {
+  count                     = var.hub_vnet_name ? 1 : 0
   provider                  = azurerm.connectivity
   name                      = "hub-${lower(var.landingzone_name)}"
   resource_group_name       = data.azurerm_virtual_network.hub_vnet.resource_group_name
@@ -100,4 +103,4 @@ resource "azurerm_virtual_network_peering" "hub_spoke" {
   remote_virtual_network_id = azurerm_virtual_network.spoke.id
 
   allow_gateway_transit = true
-}*/
+}
