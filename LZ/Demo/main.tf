@@ -4,12 +4,6 @@ provider "azurerm" {
 
 data "azurerm_client_config" "primary" {}
 
-# provider "azurerm" {
-#   alias           = "connectivity"
-#   subscription_id = var.connectivity_subscription_id
-#   features {}
-# }
-
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
   version           = "3.1.2"
@@ -43,32 +37,5 @@ module "alz_architecture" {
   }
 }
 
-# module "test_spoke_network" {
-#   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
-#   providers = {
-#     azurerm              = azurerm
-#     azurerm.connectivity = azurerm.connectivity
-#   }
 
-#   location                     = var.resource_location
-#   landingzone_name             = var.landing_zone_name
-#   environment                  = var.enviroment
-#   hub_vnet_name                = var.hub_vnet_name
-#   hub_vnet_resource_group_name = var.hub_resource_group
-#   vnet_address_space           = var.vnet_address_space
-#   subnets                      = var.vnet_subnets
-# }
-
-resource "azurerm_resource_group" "test_IaaC" {
-  name     = "rg-IaaC-Management"
-  location = "norwayeast"
-}
-
-resource "azurerm_storage_account" "test_terraformStateStorage" {
-  name                     = "${lower(replace(var.landing_zone_name, "-", ""))}iaacstorage"
-  location                 = var.resource_location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  resource_group_name      = azurerm_resource_group.test_IaaC.name
-}
