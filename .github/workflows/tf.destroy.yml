@@ -51,5 +51,11 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Destroy
       run: terraform destroy -input=false -var-file=vars.tfvars
+      env:
+        #Connection Variables
+        ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+        ARM_SUBSCRIPTION_ID: ${{ vars.SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.AZURE_ACTIONS_SECRET }}
 
       shell: bash
