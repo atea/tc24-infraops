@@ -44,7 +44,7 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init --backend-config=test.tfbackend
+      run: terraform init --backend-config=config.azurerm.tfbackend
       env:
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
