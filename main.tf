@@ -86,6 +86,7 @@ module "alz_architecture" {
       access_control = {}
     }
   }
+  
 
   root_parent_id = data.azurerm_client_config.core.tenant_id
   root_id        = var.root_id
