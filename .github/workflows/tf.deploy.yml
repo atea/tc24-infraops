@@ -1,12 +1,12 @@
-name: 'Terraform - Test - Deploy'
+name: 'Terraform Deploy'
 
 on:
-  push:
-    branches: 
-      - main
-    paths-ignore:
-        - .github/**
-        - .gitignore
+  # push:
+  #   branches: 
+  #     - main
+  #   paths-ignore:
+  #       - .github/**
+  #       - .gitignore
 
 
   workflow_dispatch:
@@ -43,7 +43,7 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init --backend-config=test.tfbackend
+      run: terraform init --backend-config=config.azurerm.tfbackend
       env:
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
@@ -64,7 +64,7 @@ jobs:
     - name: Terraform Apply
       
       run: |
-        terraform apply -auto-approve -input=false -var-file=test.tfvars
+        terraform apply -auto-approve -input=false -var-file=vars.tfvars
         terraform output > output.json
 
       env:
@@ -73,10 +73,3 @@ jobs:
         ARM_SUBSCRIPTION_ID: ${{ vars.SUBSCRIPTION_ID }}
         ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_ACTIONS_SECRET }}
-
-    - name: Upload output
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-kubeconfig
-        path: test-kubeconfig.json 
-        

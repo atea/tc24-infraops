@@ -104,10 +104,6 @@ module "alz_architecture" {
 
   deploy_management_resources    = var.deploy_management_resources
   configure_management_resources = local.configure_management_resources
-
-  subscription_id_overrides = {
-    decommissioned = var.decommissioned_subscription_ids
-  }
 }
 
 /*

@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: 'Terraform - Test - Plan'
+name: 'Terraform - Plan'
 
 # Controls when the workflow will run
 on:
@@ -44,7 +44,7 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init --backend-config=test.tfbackend
+      run: terraform init --backend-config=config.azurerm.tfbackend
       env:
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
@@ -59,7 +59,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false -var-file=test.tfvars
+      run: terraform plan -input=false -var-file=vars.tfvars
       env:
         
         #Connection Variables

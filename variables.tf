@@ -72,10 +72,6 @@ variable "management_resources_tags" {
   }
 }
 
-variable "decommissioned_subscription_ids" {
-  type = list(string)
-}
-
 /* # Site-Site VPN
 variable "local_network_gateway_address" {
   type        = string
