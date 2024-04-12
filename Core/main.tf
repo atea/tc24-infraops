@@ -13,11 +13,6 @@ terraform {
         azurerm.management
       ]
     }
-
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.4"
-    }
   }
   backend "azurerm" {}
 }
@@ -72,9 +67,6 @@ module "alz_architecture" {
       parameters = {
         Deny-Subnet-Without-Nsg = {
           effect = "Audit"
-        }
-        Deploy-VM-Backup = {
-          effect = "AuditIfNotExists"
         }
       }
       access_control = {}
