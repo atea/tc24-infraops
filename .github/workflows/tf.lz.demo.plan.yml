@@ -68,9 +68,9 @@ jobs:
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_ACTIONS_SECRET }}
 
         #env
-        TF_VARS_root_id: ${{ vars.ROOT_ID }}
-        TF_VARS_root_name: ${{ vars.ROOT_NAME }}
-        TF_VARS_landing_zone_subscription_ids: ${{ vars.SUBSCRIPTION_IDS }}
-        TF_VARS_azuread_group_owner: ${{ vars.AZUREAD_GROUP_OWNER }}
+        TF_VAR_root_id: ${{ vars.ROOT_ID }}
+        TF_VAR_root_name: ${{ vars.ROOT_NAME }}
+        TF_VAR_landing_zone_subscription_ids: ${{ vars.SUBSCRIPTION_IDS }}
+        TF_VAR_azuread_group_owner: ${{ vars.AZUREAD_GROUP_OWNER }}
 
       shell: bash
