@@ -7,7 +7,7 @@ locals {
           enabled = true
           config = {
             address_space = [
-              "10.0.0.0/22"
+              "10.0.0.0/16"
             ]
             location                     = var.connectivity_resources_location
             link_to_ddos_protection_plan = false
