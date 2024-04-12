@@ -57,6 +57,7 @@ variable "log_retention_in_days" {
 
 variable "security_alerts_email_address" {
   type = string
+  default = null
 }
 
 variable "management_resources_location" {
