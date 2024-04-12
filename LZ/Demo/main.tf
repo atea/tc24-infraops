@@ -4,15 +4,11 @@ provider "azurerm" {
 
 data "azurerm_client_config" "primary" {}
 
-data "azurerm_client_config" "prod" {
-  provider = azurerm.prod
-}
-
-provider "azurerm" {
-  alias           = "connectivity"
-  subscription_id = var.connectivity_subscription_id
-  features {}
-}
+# provider "azurerm" {
+#   alias           = "connectivity"
+#   subscription_id = var.connectivity_subscription_id
+#   features {}
+# }
 
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
