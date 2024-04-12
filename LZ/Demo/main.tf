@@ -43,21 +43,6 @@ module "alz_architecture" {
   }
 }
 
-moved {
-  from = module.spoke_network
-  to   = module.test_spoke_network
-}
-
-moved {
-  from = azurerm_resource_group.IaaC
-  to   = azurerm_resource_group.test_IaaC
-}
-
-moved {
-  from = azurerm_storage_account.terraformStateStorage
-  to   = azurerm_storage_account.test_terraformStateStorage
-}
-
 # module "test_spoke_network" {
 #   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
