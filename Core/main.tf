@@ -53,7 +53,7 @@ data "azurerm_client_config" "core" {}
 
 module "alz_architecture" {
   source            = "Azure/caf-enterprise-scale/azurerm"
-  version           = "5.2.1"
+  version           = "4.2.0"
   disable_telemetry = true
   library_path      = "${path.root}/lib"
 
