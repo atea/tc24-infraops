@@ -1,0 +1,5 @@
+resource_group_name  = "rg-azure-landing-zones"
+storage_account_name = "saatealabalz42"
+container_name       = "lz-demo-state"
+key                  = "terraform.tfstate"
+subscription_id      = "c6f5d8fe-3185-45f8-ad61-12ae4709dee4"

@@ -1,12 +1,10 @@
 variable "root_id" {
   type        = string
-  default     = "nsc"
   description = "Used by Azure Landing Zones-module for naming management groups and resources"
 }
 
 variable "root_name" {
   type        = string
-  default     = "Nordic Semiconductor"
   description = "Used by Azure Landing Zones-module for naming management groups and resources"
 }
 

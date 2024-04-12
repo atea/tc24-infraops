@@ -62,22 +62,22 @@ moved {
   to   = azurerm_storage_account.test_terraformStateStorage
 }
 
-module "test_spoke_network" {
-  source = "https://github.com/fwikestad/terraform-spoke-network"
+# module "test_spoke_network" {
+#   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
-  providers = {
-    azurerm              = azurerm
-    azurerm.connectivity = azurerm.connectivity
-  }
+#   providers = {
+#     azurerm              = azurerm
+#     azurerm.connectivity = azurerm.connectivity
+#   }
 
-  location                     = var.resource_location
-  landingzone_name             = var.landing_zone_name
-  environment                  = var.enviroment
-  hub_vnet_name                = var.hub_vnet_name
-  hub_vnet_resource_group_name = var.hub_resource_group
-  vnet_address_space           = var.vnet_address_space
-  subnets                      = var.vnet_subnets
-}
+#   location                     = var.resource_location
+#   landingzone_name             = var.landing_zone_name
+#   environment                  = var.enviroment
+#   hub_vnet_name                = var.hub_vnet_name
+#   hub_vnet_resource_group_name = var.hub_resource_group
+#   vnet_address_space           = var.vnet_address_space
+#   subnets                      = var.vnet_subnets
+# }
 
 resource "azurerm_resource_group" "test_IaaC" {
   name     = "rg-IaaC-Management"
