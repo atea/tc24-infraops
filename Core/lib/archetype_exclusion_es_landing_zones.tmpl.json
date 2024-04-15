@@ -6,7 +6,8 @@
         "Deploy-AzSqlDb-Auditing",
         "Deploy-SQL-Threat",
         "Deploy-VM-Backup",
-        "Enable-DDoS-VNET"
+        "Enable-DDoS-VNET",
+        "Restrict-resource-types"
       ],
       "policy_definitions": [],
       "policy_set_definitions": [],
