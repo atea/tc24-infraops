@@ -37,7 +37,7 @@ variable "connectivity_ne_address_space" {
 }
 
 variable "connectivity_ne_subnet" {
-  type = map(object({
+  type = list(object({
     address_prefix = string
   }))
   default = null
