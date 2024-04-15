@@ -2,7 +2,7 @@
 
 resource "azurerm_consumption_budget_management_group" "example" {
   name                = "Lab-Budget"
-  management_group_id = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zone"].id
+  management_group_id = module.alz_architecture.azurerm_management_group.level_2["/providers/Microsoft.Management/managementGroups/${var.root_id}-landing-zones"].id
 
   amount     = 200
   time_grain = "Monthly"
