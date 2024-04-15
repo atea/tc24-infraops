@@ -1,10 +1,22 @@
 {
     "extend_es_landing_zones": {
-      "policy_assignments": ["Enforce-VM-Sizes","Restrict-resource-types"],
+      "policy_assignments": ["Enforce-VM-Sizes","Restrict-resource-types", "Deny-Resource-Locations", "Deny-RSG-Locations"],
       "policy_definitions": [],
       "policy_set_definitions": [],
       "role_definitions": [],
       "archetype_config": {
+        "parameters": {
+          "Deny-Resource-Locations": {
+            "listOfAllowedLocations": [
+              "norwayeast"
+            ]
+          },
+          "Deny-RSG-Locations": {
+            "listOfAllowedLocations": [
+                "norwayeast"
+            ]
+          }
+        },
         "access_control": {
         }
       }

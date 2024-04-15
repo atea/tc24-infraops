@@ -8,6 +8,10 @@ variable "root_name" {
   default = "My Organization"
 }
 
+variable "default_location" {
+  type    = string
+  default = "norwayeast"
+}
 variable "connectivity_subscription_id" {
   type = string
 }
@@ -17,10 +21,44 @@ variable "deploy_connectivity_resources" {
   default = false
 }
 
-variable "connectivity_resources_location" {
-  type    = string
-  default = "westeurope"
+variable "deploy_ne_hub" {
+  type    = bool
+  default = false
 }
+
+variable "connectivity_ne_resources_location" {
+  type    = string
+  default = "norwayeast"
+}
+
+variable "connectivity_ne_address_space" {
+  type    = list(string)
+  default = null
+}
+
+variable "connectivity_ne_subnets" {
+  type = list(object({
+    name             = string
+    address_prefixes = list(string)
+  }))
+  default = []
+}
+
+variable "connectivity_ne_vpngw_enabled" {
+  type    = bool
+  default = false
+}
+
+variable "connectivity_ne_vpngw_sku" {
+  type    = string
+  default = "VpnGw1"
+}
+
+variable "connectivity_ne_vpngw_address_space" {
+  type    = string
+  default = null
+}
+
 
 variable "connectivity_resources_tags" {
   type = map(string)
@@ -30,9 +68,11 @@ variable "connectivity_resources_tags" {
   }
 }
 
+
+##Identity
 variable "identity_subscription_id" {
   type    = string
-  default = ""
+  default = null
 }
 
 variable "deploy_identity_resources" {
@@ -42,7 +82,7 @@ variable "deploy_identity_resources" {
 
 variable "management_subscription_id" {
   type    = string
-  default = ""
+  default = null
 }
 
 variable "deploy_management_resources" {
@@ -60,6 +100,8 @@ variable "security_alerts_email_address" {
   default = null
 }
 
+
+##Management
 variable "management_resources_location" {
   type    = string
   default = "westeurope"
@@ -73,44 +115,30 @@ variable "management_resources_tags" {
   }
 }
 
-/* # Site-Site VPN
-variable "local_network_gateway_address" {
-  type        = string
-  description = "The IP address of the on-premises VPN appliance"
-}
-
-variable "local_network_address_space" {
-  type        = list(string)
-  description = "List of address spaces of the on-premises networks"
-}
-
-# Identity zone settings
-variable "identity_vnet_address_space" {
-  type        = list(string)
-  description = "Address space for identity zone virtual network"
-}
-
-variable "ad_ds_subnet_address_prefix" {
-  type        = string
-  description = "Address space for Active Directory Domain Services"
-}
-
-variable "allowed_management_networks" {
-  type        = list(string)
-  description = "List of allowed management networks"
-}
-
-variable "keyvault_admins" {
-  type        = list(string)
-  description = "List of user principal names that will get admin access to identity zone key vault"
-}
-
 variable "decommissioned_subscription_ids" {
   type        = list(string)
   description = "List of subscription IDs that are decommissioned"
+  default     = null
 }
 
-variable "service_connection_name" {
-  type        = string
-  description = "Name of app registration in Azure AD that is setup as service connection in Azure DevOps"
-} */
+
+# # Identity zone settings
+# variable "identity_vnet_address_space" {
+#   type        = list(string)
+#   description = "Address space for identity zone virtual network"
+# }
+
+# variable "ad_ds_subnet_address_prefix" {
+#   type        = string
+#   description = "Address space for Active Directory Domain Services"
+# }
+
+# variable "allowed_management_networks" {
+#   type        = list(string)
+#   description = "List of allowed management networks"
+# }
+
+# variable "keyvault_admins" {
+#   type        = list(string)
+#   description = "List of user principal names that will get admin access to identity zone key vault"
+# }

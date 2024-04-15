@@ -8,7 +8,7 @@
         "notScopes": [],
         "parameters": {
             "listOfAllowedSKUs": {
-                "value": ["Standard_D2_v5"]
+                "value": ["Standard_B2als_v5"]
             }
         },
         "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/Allowed-VM-Sizes",

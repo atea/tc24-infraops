@@ -4,22 +4,20 @@ locals {
     settings = {
       hub_networks = [
         {
-          enabled = true
+          enabled = var.deploy_ne_hub
           config = {
-            address_space = [
-              "10.255.0.0/16"
-            ]
-            location                     = var.connectivity_resources_location
+            address_space                = var.connectivity_ne_address_space
+            location                     = var.connectivity_ne_resources_location
             link_to_ddos_protection_plan = false
             dns_servers                  = []
             bgp_community                = ""
-            subnets                      = []
+            subnets                      = var.connectivity_ne_subnets
             virtual_network_gateway = {
-              enabled = false
+              enabled = var.connectivity_ne_vpngw_enabled
               config = {
-                address_prefix           = "10.255.255.0/24"
+                address_prefix           = var.connectivity_ne_vpngw_address_space
                 gateway_sku_expressroute = ""
-                gateway_sku_vpn          = "VpnGw1"
+                gateway_sku_vpn          = var.connectivity_ne_vpngw_sku
                 advanced_vpn_settings = {
                   enable_bgp                       = false
                   active_active                    = null
@@ -60,7 +58,7 @@ locals {
       ddos_protection_plan = {
         enabled = false
         config = {
-          location = var.connectivity_resources_location
+          location = var.connectivity_ne_resources_location
         }
       }
       dns = {
@@ -131,7 +129,7 @@ locals {
             storage_account_web                  = true
           }
           private_link_locations = [
-            var.connectivity_resources_location
+            var.connectivity_ne_resources_location
           ]
           public_dns_zones                                       = []
           private_dns_zones                                      = []
@@ -141,7 +139,7 @@ locals {
       }
     }
 
-    location = var.connectivity_resources_location
+    location = var.connectivity_ne_resources_location
     tags     = var.connectivity_resources_tags
     advanced = null
   }
