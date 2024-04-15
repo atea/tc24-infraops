@@ -39,7 +39,7 @@ variable "connectivity_ne_address_space" {
 variable "connectivity_ne_subnets" {
   type = list(object({
     name             = string
-    address_prefixes = string
+    address_prefixes = list(string)
   }))
   default = []
 }
