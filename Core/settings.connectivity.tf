@@ -6,7 +6,7 @@ locals {
         {
           enabled = var.deploy_ne_hub
           config = {
-            address_space = var.connectivity_ne_address_space
+            address_space                = var.connectivity_ne_address_space
             location                     = var.connectivity_ne_resources_location
             link_to_ddos_protection_plan = false
             dns_servers                  = []

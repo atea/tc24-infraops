@@ -9,7 +9,7 @@ variable "root_name" {
 }
 
 variable "default_location" {
-  type = string
+  type    = string
   default = "norwayeast"
 }
 variable "connectivity_subscription_id" {
@@ -17,7 +17,7 @@ variable "connectivity_subscription_id" {
 }
 
 variable "deploy_connectivity_resources" {
-  type = bool
+  type    = bool
   default = false
 }
 
@@ -32,7 +32,7 @@ variable "connectivity_ne_resources_location" {
 }
 
 variable "connectivity_ne_address_space" {
-  type = list(string)
+  type    = list(string)
   default = null
 }
 
@@ -44,17 +44,17 @@ variable "connectivity_ne_subnet" {
 }
 
 variable "connectivity_ne_vpngw_enabled" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "connectivity_ne_vpngw_sku" {
-  type = string
+  type    = string
   default = "VpnGw1"
 }
 
 variable "connectivity_ne_vpngw_address_space" {
-  type = string
+  type    = string
   default = null
 }
 
@@ -117,7 +117,7 @@ variable "management_resources_tags" {
 variable "decommissioned_subscription_ids" {
   type        = list(string)
   description = "List of subscription IDs that are decommissioned"
-  default = null
+  default     = null
 }
 
 
