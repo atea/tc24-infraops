@@ -12,9 +12,6 @@ resource "azurerm_consumption_budget_management_group" "example" {
     end_date   = "2024-04-19T00:00:00Z"
   }
 
-  filter {
-  }
-
   notification {
     enabled   = true
     threshold = 90.0
