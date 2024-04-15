@@ -1,5 +1,5 @@
 root_id   = "atealab"
-root_name = "Atea Lab"
+root_name = "Atea Lab - TC24"
 
 deploy_connectivity_resources = true
 connectivity_subscription_id  = "b7405f29-bda8-4f5f-b7c9-93417d664b74"
