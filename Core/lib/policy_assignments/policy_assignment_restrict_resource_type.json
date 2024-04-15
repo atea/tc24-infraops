@@ -1,0 +1,35 @@
+{
+    "name": "Restrict-resource-types",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "apiVersion": "2019-09-01",
+    "properties": {
+        "description": "Enforce Mandatory Tags on Resource Groups",
+        "displayName": "Allowed resource types",
+        "notScopes": [],
+        "parameters": {
+            "listOfResourceTypesAllowed": {
+              "value": [
+                "microsoft.network/virtualnetworks",
+                "microsoft.network/networksecuritygroups",
+                "microsoft.network/networksecuritygroups/securityrules",
+                "microsoft.azurestackhci/virtualmachines",
+                "microsoft.compute/disks",
+                "microsoft.network/routetables",
+                "microsoft.network/publicipaddresses"
+              ]
+            }
+          },
+        "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/a08ec900-254a-4555-9bf5-e42af04b5c5c",
+        "scope": "${current_scope_resource_id}",
+        "enforcementMode": null,
+        "nonComplianceMessages": [
+        {
+            "message": "Only use allowed resources"
+        }
+        ]
+    },
+    "location": "${default_location}",
+    "identity": {
+        "type": "SystemAssigned"
+    }
+}
