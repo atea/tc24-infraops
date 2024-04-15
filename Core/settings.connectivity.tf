@@ -7,7 +7,7 @@ locals {
           enabled = true
           config = {
             address_space = [
-              "10.0.0.0/16"
+              "10.255.0.0/16"
             ]
             location                     = var.connectivity_resources_location
             link_to_ddos_protection_plan = false
@@ -15,23 +15,18 @@ locals {
             bgp_community                = ""
             subnets                      = []
             virtual_network_gateway = {
-              enabled = true
+              enabled = false
               config = {
-                address_prefix           = ""
+                address_prefix           = "10.255.255.0/24"
                 gateway_sku_expressroute = ""
                 gateway_sku_vpn          = "VpnGw1"
                 advanced_vpn_settings = {
-                  enable_bgp                       = true
+                  enable_bgp                       = false
                   active_active                    = null
                   private_ip_address_allocation    = ""
                   default_local_network_gateway_id = ""
                   vpn_client_configuration         = []
                   bgp_settings = [
-                    {
-                      asn               = 65514
-                      peer_weight       = 0
-                      peering_addresses = []
-                    }
                   ]
                   custom_route = []
                 }
