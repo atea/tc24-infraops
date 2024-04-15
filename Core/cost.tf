@@ -8,8 +8,8 @@ resource "azurerm_consumption_budget_management_group" "example" {
   time_grain = "Monthly"
 
   time_period {
-    start_date = "2024-04-19T00:00:00Z"
-    end_date   = "2024-04-19T00:00:00Z"
+    start_date = "2024-04-01T00:00:00Z"
+    end_date   = "2024-04-01T00:00:00Z"
   }
 
   notification {
