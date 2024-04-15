@@ -58,7 +58,7 @@ module "alz_architecture" {
     azurerm.management   = azurerm.management
   }
 
-  default_location = var.connectivity_resources_location
+  default_location = var.connectivity_ne_resources_location
 
 
   archetype_config_overrides = {
