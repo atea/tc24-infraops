@@ -41,7 +41,7 @@ variable "connectivity_ne_subnet" {
     name           = string
     address_prefix = string
   }))
-  default = null
+  default = []
 }
 
 variable "connectivity_ne_vpngw_enabled" {
