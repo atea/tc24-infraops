@@ -11,7 +11,7 @@ locals {
             link_to_ddos_protection_plan = false
             dns_servers                  = []
             bgp_community                = ""
-            subnets                      = var.connectivity_ne_subnet
+            subnets                      = var.connectivity_ne_subnets
             virtual_network_gateway = {
               enabled = var.connectivity_ne_vpngw_enabled
               config = {
