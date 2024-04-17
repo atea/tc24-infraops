@@ -60,7 +60,7 @@ module "network" {
 
   environment      = "prod"
   landingzone_name = "Demo"
-  location = "norwayeast"
+  location         = "norwayeast"
 
   vnet_address_space = ["10.1.0.0/16"]
   subnets = {
