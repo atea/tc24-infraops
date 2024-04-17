@@ -9,8 +9,11 @@ deploy_connectivity_resources       = true
 deploy_ne_hub                       = true
 connectivity_ne_resources_location  = "norwayeast"
 connectivity_ne_address_space       = ["10.255.0.0/16"]
-connectivity_ne_vpngw_enabled       = false
+
+connectivity_ne_vpngw_enabled       = true
 connectivity_ne_vpngw_address_space = "10.255.0.0/24"
+
+
 
 connectivity_resources_tags = {
   "Deployed-By" = "Terraform"
