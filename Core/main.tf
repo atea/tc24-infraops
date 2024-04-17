@@ -47,10 +47,11 @@ provider "azurerm" {
 data "azurerm_client_config" "core" {}
 
 module "alz_architecture" {
-  source            = "Azure/caf-enterprise-scale/azurerm"
-  version           = "4.2.0"
-  disable_telemetry = true
-  library_path      = "${path.root}/lib"
+  source                          = "Azure/caf-enterprise-scale/azurerm"
+  version                         = "5.0.3"
+  disable_telemetry               = true
+  strict_subscription_association = true
+  library_path                    = "${path.root}/lib"
 
   providers = {
     azurerm              = azurerm
