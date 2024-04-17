@@ -56,7 +56,7 @@ module "network" {
   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
   hub_vnet_name                = "atealab-hub-norwayeast"
-  hub_vnet_resource_group_name = "atealab-hub-norwayeast"
+  hub_vnet_resource_group_name = "atealab-connectivity-norwayeast"
 
   environment      = "prod"
   landingzone_name = "Demo"
