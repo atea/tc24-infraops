@@ -131,6 +131,7 @@ locals {
           private_link_locations = [
             var.connectivity_ne_resources_location
           ]
+
           public_dns_zones                                       = []
           private_dns_zones                                      = []
           enable_private_dns_zone_virtual_network_link_on_hubs   = false
@@ -141,6 +142,17 @@ locals {
 
     location = var.connectivity_ne_resources_location
     tags     = var.connectivity_resources_tags
-    advanced = null
+    advanced = {
+      custom_settings_by_resource_type = {
+        azurerm_public_ip = {
+          connectivity_vpn = {
+            (var.connectivity_ne_resources_location) = {
+              sku               = "Standard"
+              allocation_method = "Static"
+            }
+          }
+        }
+      }
+    }
   }
 }
