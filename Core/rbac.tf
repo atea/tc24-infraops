@@ -124,3 +124,9 @@ resource "azurerm_role_assignment" "Deltaker-New-Subs-Owner" {
   role_definition_name = "Owner"
   principal_id         = data.azuread_group.TC24-Deltakere.object_id
 }
+
+resource "azurerm_role_assignment" "Deltaker-Hub-Network-Contributor" {
+  scope                = "/providers/Microsoft.Management/managementGroups/${var.root_id}-connectivity"
+  role_definition_name = "Network Contributor"
+  principal_id         = data.azuread_group.TC24-Deltakere.object_id
+}
