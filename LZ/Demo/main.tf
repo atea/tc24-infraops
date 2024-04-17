@@ -2,6 +2,14 @@ provider "azurerm" {
   features {}
 }
 
+provider "azurerm" {
+  alias = "connectivity"
+  subscription_id = "b7405f29-bda8-4f5f-b7c9-93417d664b74"
+
+  features {
+    
+  }
+}
 
 #Test trigger
 data "azurerm_client_config" "primary" {}
@@ -42,6 +50,9 @@ module "alz_architecture" {
 }
 
 module "network" {
+  providers = {
+    azurerm.connectivity = azurerm.connectivity
+  }
   source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
   hub_vnet_name = "atealab-hub-norwayeast"
