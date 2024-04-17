@@ -146,7 +146,7 @@ locals {
       custom_settings_by_resource_type = {
         azurerm_public_ip = {
           connectivity_vpn = {
-            var.connectivity_ne_resources_location = {
+            (var.connectivity_ne_resources_location) = {
               sku               = "Standard"
               allocation_method = "Static"
             }
