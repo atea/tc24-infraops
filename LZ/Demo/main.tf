@@ -41,5 +41,19 @@ module "alz_architecture" {
   }
 }
 
+module "network" {
+  source = "git::https://github.com/fwikestad/terraform-spoke-network"
 
+  hub_vnet_name = "atealab-hub-norwayeast"
+  hub_vnet_resource_group_name = "atealab-hub-norwayeast"
+  
+  environment = "prod"
+  landingzone_name = "Demo"
 
+  vnet_address_space = [ "10.1.0.0/16" ]
+  subnets = {
+    snet01 = {
+      address_prefix = "10.1.0.0/24"
+    }
+  }
+}
