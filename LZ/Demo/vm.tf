@@ -14,7 +14,7 @@ module "vm" {
 }
 
 resource "azurerm_network_security_rule" "rdp" {
-  name                        = "Allow RDP From my IP"
+  name                        = "AllowRdpFromMyIp"
   resource_group_name         = module.network.resource_group_name
   network_security_group_name = module.network.nsg_name
 
