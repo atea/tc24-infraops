@@ -15,7 +15,8 @@
                 "microsoft.azurestackhci/virtualmachines",
                 "microsoft.compute/disks",
                 "microsoft.network/routetables",
-                "microsoft.network/publicipaddresses"
+                "microsoft.network/publicipaddresses",
+                "microsoft.network/networkInterfaces"
               ]
             }
           },
