@@ -120,7 +120,7 @@ resource "azurerm_role_assignment" "Deltaker-LZ-Owner" {
 }
 
 resource "azurerm_role_assignment" "Deltaker-New-Subs-Owner" {
-  scope                = "/providers/Microsoft.Management/managementGroups/new-subscriptions"
+  scope                = "/providers/Microsoft.Management/managementGroups/New-Subs"
   role_definition_name = "Owner"
   principal_id         = data.azuread_group.TC24-Deltakere.object_id
 }
