@@ -12,3 +12,21 @@ module "vm" {
   vm_password         = "ChangeMe123!"
   use_public_ip       = true
 }
+
+resource "azurerm_network_security_rule" "rdp" {
+  name                        = "AllowRdpFromMyIp"
+  resource_group_name         = module.network.resource_group_name
+  network_security_group_name = module.network.nsg_name
+
+  priority  = 100
+  direction = "Inbound"
+  access    = "Allow"
+  protocol  = "Tcp"
+
+  source_address_prefix = "91.184.138.88/32"
+  source_port_range     = "*"
+
+  destination_address_prefix = "*"
+  destination_port_range     = "3389"
+
+}
