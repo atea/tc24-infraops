@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "vm" {
 }
 
 module "vm" {
-  source              = "git::https://github.com/fwikestad/terraform-azurerm-windows-vm"
+  source              = "github.com/fwikestad/terraform-azurerm-windows-vm"
   vm_name             = "test"
   resource_group_name = azurerm_resource_group.vm.name
   location            = var.resource_location
