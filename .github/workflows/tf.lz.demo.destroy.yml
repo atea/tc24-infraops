@@ -52,7 +52,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Destroy
-      run: terraform destroy -input=false -var-file=vars.tfvars -auto-approve -input=false
+      run: terraform destroy -input=false -auto-approve -input=false
       env:
         #Connection Variables
         ARM_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
