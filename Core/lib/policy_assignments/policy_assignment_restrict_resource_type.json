@@ -12,7 +12,7 @@
                 "microsoft.network/virtualnetworks",
                 "microsoft.network/networksecuritygroups",
                 "microsoft.network/networksecuritygroups/securityrules",
-                "microsoft.azurestackhci/virtualmachines",
+                "microsoft.compute/virtualmachines",
                 "microsoft.compute/disks",
                 "microsoft.network/routetables",
                 "microsoft.network/publicipaddresses",
