@@ -131,7 +131,7 @@ resource "azurerm_role_assignment" "Deltaker-Hub-Network-Contributor" {
   principal_id         = data.azuread_group.TC24-Deltakere.object_id
 }
 
-resource "azurerm_role_assignment" "Deltaker-Hub-Network-Contributor" {
+resource "azurerm_role_assignment" "Deltaker-portal-global-reader" {
   scope                = "/providers/Microsoft.Management/managementGroups/atealab"
   role_definition_name = "Reader"
   principal_id         = data.azuread_group.TC24-Deltakere.object_id
