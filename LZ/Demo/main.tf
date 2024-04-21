@@ -71,14 +71,14 @@ module "network" {
 }
 
 resource "azurerm_resource_group" "lz-infra" {
-  name = "rg-lz-infra"
+  name     = "rg-lz-infra"
   location = var.resource_location
 }
 
 resource "azurerm_storage_account" "state_storage" {
-  name = lower("${var.landing_zone_name}statestoragettc24")
-  resource_group_name = azurerm_resource_group.lz-infra.name
-  location = azurerm_resource_group.lz-infra.location
+  name                     = lower("${var.landing_zone_name}statestoragettc24")
+  resource_group_name      = azurerm_resource_group.lz-infra.name
+  location                 = azurerm_resource_group.lz-infra.location
   account_replication_type = "LRS"
-  account_tier = "Standard"
+  account_tier             = "Standard"
 }
