@@ -16,7 +16,8 @@
                 "microsoft.compute/disks",
                 "microsoft.network/routetables",
                 "microsoft.network/publicipaddresses",
-                "microsoft.network/networkInterfaces"
+                "microsoft.network/networkInterfaces",
+                "microsoft.storage/storageAccounts"
               ]
             }
           },
